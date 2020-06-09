@@ -1,0 +1,14 @@
+# virtual env
+/venv
+
+# python packaging
+/django_mirror.egg-info
+/.eggs
+/build
+/dist
+
+# python temps
+*.pyc
+
+# editor temps
+*.swp

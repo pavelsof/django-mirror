@@ -1,0 +1,13 @@
+.CodeMirror {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: inherit;
+	font-family: inherit;
+	font-size: 14px;
+	max-width: 518px;
+	padding: 6px 8px;
+}
+
+.CodeMirror-focused {
+	border-color: #999;
+}
