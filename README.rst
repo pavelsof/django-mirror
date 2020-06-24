@@ -17,30 +17,65 @@ usage
 installation
 ------------
 
-This is a standard Python 3 package without dependencies (apart from Django itself) offered at the `Cheese Shop`_::
+This is a Python 3 package with no other dependencies apart from Django and it is offered at the `Cheese Shop`_:
+
+    ..code:: sh
 
     # usually inside a virtual environment
     pip install django-mirror
 
-And then you have to add ``django_mirror`` to the ``INSTALLED_APPS`` setting of your Django project.
+
+settings
+--------
+
+    ..code:: python
+
+    # add 'django_mirror' to your INSTALLED_APPS if you want the package to be
+    # handled by Django's collectstatic command
+    INSTALLED_APPS += ['django_mirror']
+
+    # use DJANGO_MIRROR_DEFAULTS to specify default options for your widgets
+    # see the next section for more info about the options
+    DJANGO_MIRROR_DEFAULTS = {
+        'mode': 'rst',
+        'addons': ['mode/overlay'],
+        'line_wrapping': True,
+    }
 
 
 widget
 ------
 
-To django-mirror textarea is provided as a form widget::
+Bascially this package provides a form widget called ``MirrorArea`` that extends ``forms.Textarea``.
+
+    ..code:: python
 
     from django import forms
     from django_mirror.widgets import MirrorTextarea
 
     class CommentForm(forms.Form):
-        text = forms.CharField(widget=MirrorTextarea(mode='markdown'))
+        text = forms.CharField(
+            widget=MirrorArea(
+                attrs={'rows': 20},  # the parent class' attrs still works
+                mode='markdown',  # the other kwargs are forwarded to CodeMirror
+            )
+        )
+
+The ``MirrorArea`` widget can be initialised with the following arguments:
+
+- ``attrs``, as the other Django form widgets.
+- ``addons``, a list of CodeMirror `addons`_ to include as form assets.
+- Any of CodeMirror's `config options`_, in both camelCase and snake_case.
+
+The addons and config options are merged with ``DJANGO_MIRROR_DEFAULTS`` if the setting has been defined.
 
 
 admin
 -----
 
-To use the django-mirror textarea widget in the admin panel you can subclass the respective model form. But you can also use the admin mixin provided by the library::
+If you want to use the widget in the admin panel, you can subclass the ``MirrorAdmin`` mixin, which provides the ``mirror_fields`` model admin option:
+
+    ..code:: python
 
     from django.contrib import admin
     from django_mirror.admin import MirrorAdmin
@@ -70,6 +105,8 @@ licence
 GPL. You can do what you want with this code as long as you let others do the same.
 
 
-.. _`Django`: https://www.djangoproject.com/
+.. _`addons`: https://codemirror.net/doc/manual.html#addons
 .. _`Cheese Shop`: https://pypi.python.org/pypi/django-mirror
 .. _`CodeMirror`: https://codemirror.net/
+.. _`config options`: https://codemirror.net/doc/manual.html#config
+.. _`Django`: https://www.djangoproject.com/

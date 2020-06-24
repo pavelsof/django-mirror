@@ -1,19 +1,35 @@
+import json
+
 from django import forms
+from django.conf import settings
 
 
 class MirrorArea(forms.Textarea):
 
-    def __init__(self, attrs=None, mode='markdown', addons=[]):
-        default_attrs = {'data-mirror': mode}
-        if attrs:
-            default_attrs.update(attrs)
-        super().__init__(default_attrs)
+    def __init__(self, attrs=None, addons=[], **kwargs):
+        """
+        Set the config options for the CodeMirror editor.
+        """
+        options = getattr(settings, 'DJANGO_MIRROR_DEFAULTS', {})
+        for key, value in kwargs.items():
+            first, *rest = key.split('_')
+            key = first + ''.join([x.capitalize() for x in rest])
+            options[key] = value
 
-        self.mode = mode
         self.addons = addons
+        self.mode = options.get('mode', 'markdown')
+
+        html_attrs = {'data-mirror': json.dumps(options)}
+        if attrs:
+            html_attrs.update(attrs)
+
+        super().__init__(html_attrs)
 
     @property
     def media(self):
+        """
+        Dynamically define the css and js assets needed by the widget.
+        """
         css = {
             'all': (
                 'django-mirror/codemirror/lib/codemirror.css',

@@ -2,10 +2,8 @@ const djangoMirror = (function() {
 	'use strict';
 
 	const initMirror = function(element) {
-		let data = element.dataset.mirror;
-		let mirror = CodeMirror.fromTextArea(element, {
-			'mode': data
-		});
+		let options = JSON.parse(element.dataset.mirror);
+		let mirror = CodeMirror.fromTextArea(element, options);
 	};
 
 	let mirrors = Object.create(null);
