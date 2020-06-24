@@ -19,7 +19,7 @@ installation
 
 This is a Python 3 package with no other dependencies apart from Django and it is offered at the `Cheese Shop`_:
 
-    ..code:: sh
+.. code:: sh
 
     # usually inside a virtual environment
     pip install django-mirror
@@ -28,7 +28,7 @@ This is a Python 3 package with no other dependencies apart from Django and it i
 settings
 --------
 
-    ..code:: python
+.. code:: python
 
     # add 'django_mirror' to your INSTALLED_APPS if you want the package to be
     # handled by Django's collectstatic command
@@ -48,7 +48,7 @@ widget
 
 Bascially this package provides a form widget called ``MirrorArea`` that extends ``forms.Textarea``.
 
-    ..code:: python
+.. code:: python
 
     from django import forms
     from django_mirror.widgets import MirrorTextarea
@@ -75,7 +75,7 @@ admin
 
 If you want to use the widget in the admin panel, you can subclass the ``MirrorAdmin`` mixin, which provides the ``mirror_fields`` model admin option:
 
-    ..code:: python
+.. code:: python
 
     from django.contrib import admin
     from django_mirror.admin import MirrorAdmin
