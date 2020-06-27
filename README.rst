@@ -5,12 +5,6 @@ django mirror
 This package marries `Django`_ with `CodeMirror`_.
 
 
-rationale
-=========
-
-- You can enable vim mode :)
-
-
 usage
 =====
 
@@ -93,10 +87,13 @@ If you want to use the widget in the admin panel, you can subclass the ``MirrorA
         )
 
 
-uploads
--------
+similar projects
+================
 
+There are at least two other packages that would offer alternative takes on adding CodeMirror to Django:
 
+* `django-codemirror`_
+* `django-codemirror2`_
 
 
 licence
@@ -110,3 +107,5 @@ GPL. You can do what you want with this code as long as you let others do the sa
 .. _`CodeMirror`: https://codemirror.net/
 .. _`config options`: https://codemirror.net/doc/manual.html#config
 .. _`Django`: https://www.djangoproject.com/
+.. _`django-codemirror`: https://pypi.org/project/django-codemirror/
+.. _`django-codemirror2`: https://pypi.org/project/django-codemirror2/
