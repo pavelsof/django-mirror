@@ -50,6 +50,8 @@ setup(
         'django_mirror': [
             'static/django-mirror/*.css',
             'static/django-mirror/*.js',
+            'static/django-mirror/codemirror/addon/*/*.css',
+            'static/django-mirror/codemirror/addon/*/*.js',
             'static/django-mirror/codemirror/lib/*.css',
             'static/django-mirror/codemirror/lib/*.js',
             'static/django-mirror/codemirror/mode/*/*.js',
