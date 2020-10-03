@@ -1,7 +1,6 @@
-import json
-
 from django import forms
-from django.conf import settings
+
+from django_mirror.config import Config
 
 
 class MirrorArea(forms.Textarea):
@@ -10,16 +9,13 @@ class MirrorArea(forms.Textarea):
         """
         Set the config options for the CodeMirror editor.
         """
-        options = getattr(settings, 'DJANGO_MIRROR_DEFAULTS', {})
-        for key, value in kwargs.items():
-            first, *rest = key.split('_')
-            key = first + ''.join([x.capitalize() for x in rest])
-            options[key] = value
+        config = Config()
+        config.update(kwargs)
 
         self.addons = addons
-        self.mode = options.get('mode', 'markdown')
+        self.mode = config.data.get('mode', 'markdown')
 
-        html_attrs = {'data-mirror': json.dumps(options)}
+        html_attrs = {'data-mirror': config.to_json()}
         if attrs:
             html_attrs.update(attrs)
 
