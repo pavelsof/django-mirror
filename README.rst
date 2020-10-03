@@ -2,7 +2,7 @@
 django mirror
 =============
 
-This package marries `Django`_ with `CodeMirror`_.
+This package marries `Django`_ with `CodeMirror`_. It provides (1) a customisable form widget, and (2) a shorthand way to use this widget in the admin.
 
 
 usage
@@ -17,6 +17,8 @@ This is a Python 3 package with no other dependencies apart from Django and it i
 
     # usually inside a virtual environment
     pip install django-mirror
+
+The CodeMirror files (version `5.55.0`_) are included in the package.
 
 
 settings
@@ -40,7 +42,7 @@ settings
 widget
 ------
 
-Bascially this package provides a form widget called ``MirrorArea`` that extends ``forms.Textarea``.
+Bascially this package provides a form widget called ``MirrorArea`` that extends Django's ``Textarea`` widget.
 
 .. code:: python
 
@@ -57,9 +59,9 @@ Bascially this package provides a form widget called ``MirrorArea`` that extends
 
 The ``MirrorArea`` widget can be initialised with the following arguments:
 
-- ``attrs``, as the other Django form widgets.
+- ``attrs``, just as Django's form widgets.
 - ``addons``, a list of CodeMirror `addons`_ to include as form assets.
-- Any of CodeMirror's `config options`_, in both camelCase and snake_case.
+- Any of CodeMirror's `config options`_, in either camelCase and snake_case.
 
 The addons and config options are merged with ``DJANGO_MIRROR_DEFAULTS`` if the setting has been defined.
 
@@ -92,8 +94,8 @@ similar projects
 
 There are at least two other packages that would offer alternative takes on adding CodeMirror to Django:
 
-* `django-codemirror`_
-* `django-codemirror2`_
+* `django-codemirror`_ provides a customisable form widget, but has not been updated since 2016.
+* `django-codemirror2`_ also provides a customisable form widget, but has not been updated since 2016 either.
 
 
 licence
@@ -102,6 +104,7 @@ licence
 GPL. You can do what you want with this code as long as you let others do the same.
 
 
+.. _`5.55.0`: https://github.com/codemirror/CodeMirror/releases/tag/5.55.0
 .. _`addons`: https://codemirror.net/doc/manual.html#addons
 .. _`Cheese Shop`: https://pypi.python.org/pypi/django-mirror
 .. _`CodeMirror`: https://codemirror.net/
