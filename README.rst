@@ -5,11 +5,8 @@ django mirror
 This package marries `Django`_ with `CodeMirror`_. It provides (1) a customisable form widget, and (2) a shorthand way to use this widget in the admin.
 
 
-usage
-=====
-
 installation
-------------
+============
 
 This is a Python 3 package with no other dependencies apart from Django and it is offered at the `Cheese Shop`_:
 
@@ -22,7 +19,7 @@ The CodeMirror files (version `5.55.0`_) are included in the package.
 
 
 settings
---------
+========
 
 .. code:: python
 
@@ -40,7 +37,7 @@ settings
 
 
 widget
-------
+======
 
 Bascially this package provides a form widget called ``MirrorArea`` that extends Django's ``Textarea`` widget.
 
@@ -59,15 +56,15 @@ Bascially this package provides a form widget called ``MirrorArea`` that extends
 
 The ``MirrorArea`` widget can be initialised with the following arguments:
 
+- Any of CodeMirror's `config options`_. These can be specified in either camelCase or snake_case (e.g. both ``tabSize`` and ``tab_size`` would work). The css/js files associated with the ``mode``, if provided, are included as form assets.
+- ``addons``, a list of CodeMirror `addons`_, e.g. ``dialog/dialog``. The css/js files associated with the addons are recursively included as form assets.
 - ``attrs``, just as Django's form widgets.
-- ``addons``, a list of CodeMirror `addons`_ to include as form assets.
-- Any of CodeMirror's `config options`_, in either camelCase and snake_case.
 
-The addons and config options are merged with ``DJANGO_MIRROR_DEFAULTS`` if the setting has been defined.
+The addons and config options are merged with and override ``DJANGO_MIRROR_DEFAULTS`` if the setting has been defined.
 
 
 admin
------
+=====
 
 If you want to use the widget in the admin panel, you can subclass the ``MirrorAdmin`` mixin, which provides the ``mirror_fields`` model admin option:
 
