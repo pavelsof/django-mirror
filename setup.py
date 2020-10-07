@@ -48,6 +48,7 @@ setup(
 
     package_data={
         'django_mirror': [
+            'media.json',
             'static/django-mirror/*.css',
             'static/django-mirror/*.js',
             'static/django-mirror/codemirror/addon/*/*.css',

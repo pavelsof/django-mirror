@@ -143,4 +143,4 @@ class MirrorAreaTestCase(TestCase):
         """
         widget = MirrorArea(addons=['hint/sql-hint'])
         self.assert_js(widget, 'codemirror/addon/hint/sql-hint.js')
-        self.assert_css(widget, 'codemirror/mode/sql/sql.js')
+        self.assert_js(widget, 'codemirror/mode/sql/sql.js')

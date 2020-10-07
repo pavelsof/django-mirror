@@ -1,6 +1,5 @@
-import json
-
 from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
 
 
 def snake_to_camel(snake):
@@ -16,8 +15,9 @@ class Config:
     A config instance represents a CodeMirror configuration [1]. Usage:
 
         config = Config()
-        config.update({'read_only': True})
-        assert config.to_json() == '{"readOnly": true}'
+        config.update(read_only=True, addons=['dialog/dialog'])
+        assert config.options == {'readOnly': True}
+        assert config.addons == ['dialog/dialog.js']
 
     [1]: https://codemirror.net/doc/manual.html#config
     """
@@ -26,20 +26,25 @@ class Config:
         """
         Init the config with the default values provided in the settings.
         """
-        self.data = {}
+        self.options = {}
+        self.addons = []
 
         if hasattr(settings, 'DJANGO_MIRROR_DEFAULTS'):
-            self.update(settings.DJANGO_MIRROR_DEFAULTS)
+            try:
+                self.update(**settings.DJANGO_MIRROR_DEFAULTS)
+            except TypeError:
+                message = 'DJANGO_MIRROR_DEFAULTS should be a dict.'
+                raise ImproperlyConfigured(message)
 
-    def update(self, more_options):
-        """
-        Update the config with more options.
-        """
-        for key, value in more_options.items():
-            self.data[snake_to_camel(key)] = value
+    def update(self, **kwargs):
+        for key, value in kwargs.items():
+            if key == 'addons':
+                self.set_addons(value)
+            else:
+                self.options[snake_to_camel(key)] = value
 
-    def to_json(self):
-        """
-        Serialise the config so that CodeMirror can consume it.
-        """
-        return json.dumps(self.data)
+    def set_addons(self, addons):
+        self.addons = [
+            addon if addon.endswith('.js') else addon + '.js'
+            for addon in addons
+        ]
