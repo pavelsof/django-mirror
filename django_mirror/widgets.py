@@ -42,11 +42,6 @@ class MirrorArea(forms.Textarea):
         for addon in self.config.addons:
             media += get_addon_media(addon)
 
-        media += forms.Media(
-            css={
-                'all': ['django-mirror/django.css']
-            },
-            js=['django-mirror/django.js']
-        )
+        media += forms.Media(js=['django-mirror/django.js'])
 
         return media

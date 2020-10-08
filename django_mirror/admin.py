@@ -2,6 +2,18 @@ from django_mirror.widgets import MirrorArea
 
 
 class MirrorAdmin:
+    """
+    Mixin for ModelAdmin subclasses which provides the mirror_fields option,
+    used for listing fields to be rendered with the MirrorArea widget.
+
+    mirror_fields can be either a list of field names, or a list of tuples
+    where the first item is the field name and the second item is a dict of
+    options to be passed to the widget.
+
+    This mixin just provides another way to use the MirrorArea widget in the
+    admin; this could be also done by subclassing the model form or by using
+    the formfield_overrides option.
+    """
     mirror_fields = tuple()
 
     def get_mirror_fields(self, request, obj=None):
@@ -35,3 +47,12 @@ class MirrorAdmin:
                 kwargs['widgets'] = mirror_widgets
 
         return super().get_form(request, obj, **kwargs)
+
+    class Media:
+        """
+        Include admin.css, which tries to make the CodeMirror editor instances
+        look a bit more like regular admin textarea fields.
+        """
+        css = {
+            'all': ('django-mirror/admin.css',)
+        }

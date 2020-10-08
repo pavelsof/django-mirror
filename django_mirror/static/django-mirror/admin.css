@@ -4,8 +4,9 @@
 	color: inherit;
 	font-family: inherit;
 	font-size: 14px;
-	max-width: 518px;
 	padding: 6px 8px;
+	resize: both;
+	width: 518px;
 }
 
 .CodeMirror-focused {
