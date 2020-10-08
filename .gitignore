@@ -7,6 +7,9 @@
 /build
 /dist
 
+# sample project
+/sample_project/db.sqlite3
+
 # python temps
 *.pyc
 
