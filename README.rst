@@ -1,5 +1,5 @@
 =============
-django mirror
+django-mirror
 =============
 
 This package marries `Django`_ with `CodeMirror`_. It provides (1) a customisable form widget, and (2) a shorthand way to use this widget in the admin.
@@ -89,10 +89,12 @@ If you want to use the widget in the admin panel, you can subclass the ``MirrorA
 similar projects
 ================
 
-There are at least two other packages that would offer alternative takes on adding CodeMirror to Django:
+There are several other packages that provide customisable CodeMirror widgets:
 
-* `django-codemirror`_ provides a customisable form widget, but has not been updated since 2016.
-* `django-codemirror2`_ also provides a customisable form widget, but has not been updated since 2016 either.
+* `django-codemirror`_
+* `django-codemirror2`_
+* `django-codemirror-widget`_
+* `django-codemirror-widget-2`_
 
 
 licence
@@ -109,3 +111,5 @@ GPL. You can do what you want with this code as long as you let others do the sa
 .. _`Django`: https://www.djangoproject.com/
 .. _`django-codemirror`: https://pypi.org/project/django-codemirror/
 .. _`django-codemirror2`: https://pypi.org/project/django-codemirror2/
+.. _`django-codemirror-widget`: https://pypi.org/project/django-codemirror-widget/
+.. _`django-codemirror-widget-2`: https://pypi.org/project/django-codemirror-widget-2/

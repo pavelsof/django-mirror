@@ -1,5 +1,5 @@
 ============================
-django mirror sample project
+django-mirror sample project
 ============================
 
 A bare-bones Django 2.2 project with a single app with a single model with a single field for playing with the admin integration.
