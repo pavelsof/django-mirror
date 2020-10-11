@@ -9,5 +9,6 @@ class EchoAdmin(MirrorAdmin, admin.ModelAdmin):
     mirror_fields = (
         ('words', {
             'mode': 'markdown',
+            'line_wrapping': True,
         }),
     )

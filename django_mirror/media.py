@@ -54,3 +54,11 @@ def get_addon_media(addon):
     """
     path = 'addon/{}'.format(addon if addon.endswith('.js') else addon+'.js')
     return _make(path)
+
+def get_theme_media(theme):
+    """
+    Return a media instance pointing to the css file of the requested theme.
+    """
+    path = 'theme/{}.css'.format(theme)
+    path = os.path.join('django-mirror/codemirror', path)
+    return Media(css={'all': [path]})

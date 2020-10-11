@@ -3,7 +3,9 @@ import json
 from django import forms
 
 from django_mirror.config import Config
-from django_mirror.media import get_addon_media, get_mode_media
+from django_mirror.media import (
+    get_addon_media, get_mode_media, get_theme_media
+)
 
 
 class MirrorArea(forms.Textarea):
@@ -38,6 +40,9 @@ class MirrorArea(forms.Textarea):
 
         if 'mode' in self.config.options:
             media += get_mode_media(self.config.options['mode'])
+
+        if 'theme' in self.config.options:
+            media += get_theme_media(self.config.options['theme'])
 
         for addon in self.config.addons:
             media += get_addon_media(addon)

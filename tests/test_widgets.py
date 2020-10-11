@@ -62,13 +62,13 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
         self.assert_js(widget, 'codemirror/mode/python/python.js')
         self.assert_js(widget, 'django.js')
 
-    @override_settings(DJANGO_MIRROR_DEFAULTS={'mode': 'erlang'})
+    @override_settings(DJANGO_MIRROR_DEFAULTS={'mode': 'python'})
     def test_override_mode(self):
         """
         The widget should include the media files of the mode provided as an
         init kwarg when this overrides the default config.
         """
-        widget = MirrorArea()
+        widget = MirrorArea(mode='erlang')
         self.assertTrue('python' not in str(widget.media))
         self.assert_css(widget, 'codemirror/lib/codemirror.css')
         self.assert_js(widget, 'codemirror/lib/codemirror.js')
@@ -126,4 +126,29 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
         self.assert_js(widget, 'codemirror/lib/codemirror.js')
         self.assert_js(widget, 'codemirror/addon/hint/sql-hint.js')
         self.assert_js(widget, 'codemirror/mode/sql/sql.js')
+        self.assert_js(widget, 'django.js')
+
+    @override_settings(DJANGO_MIRROR_DEFAULTS={'theme': 'yeti'})
+    def test_default_theme(self):
+        """
+        The widget should include the css file of the theme specified in the
+        default config.
+        """
+        widget = MirrorArea()
+        self.assert_css(widget, 'codemirror/lib/codemirror.css')
+        self.assert_css(widget, 'codemirror/theme/yeti.css')
+        self.assert_js(widget, 'codemirror/lib/codemirror.js')
+        self.assert_js(widget, 'django.js')
+
+    @override_settings(DJANGO_MIRROR_DEFAULTS={'theme': 'yeti.css'})
+    def test_override_theme(self):
+        """
+        The widget should include the css file of the theme specified as an
+        init kwarg when this overrides the default config.
+        """
+        widget = MirrorArea(theme='nord')
+        self.assertTrue('yeti' not in str(widget.media))
+        self.assert_css(widget, 'codemirror/lib/codemirror.css')
+        self.assert_css(widget, 'codemirror/theme/nord.css')
+        self.assert_js(widget, 'codemirror/lib/codemirror.js')
         self.assert_js(widget, 'django.js')

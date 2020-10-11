@@ -56,6 +56,7 @@ setup(
             'static/django-mirror/codemirror/lib/*.css',
             'static/django-mirror/codemirror/lib/*.js',
             'static/django-mirror/codemirror/mode/*/*.js',
+            'static/django-mirror/codemirror/theme/*.css',
         ]
     },
 )
