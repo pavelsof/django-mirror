@@ -89,6 +89,18 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
         self.assert_js(widget, 'codemirror/addon/mode/overlay.js')
         self.assert_js(widget, 'django.js')
 
+    def test_unknown_mode(self):
+        """
+        The widget should not include non-existing media files when inited with
+        an unrecognised mode.
+        """
+        widget = MirrorArea(mode='mumbo-jumbo')
+        with self.assertLogs(level='ERROR'):
+            self.assertTrue('mumbo-jumbo' not in str(widget.media))
+            self.assert_css(widget, 'codemirror/lib/codemirror.css')
+            self.assert_js(widget, 'codemirror/lib/codemirror.js')
+            self.assert_js(widget, 'django.js')
+
     @override_settings(DJANGO_MIRROR_DEFAULTS={'addons': ['dialog/dialog']})
     def test_default_addons(self):
         """
@@ -128,6 +140,18 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
         self.assert_js(widget, 'codemirror/mode/sql/sql.js')
         self.assert_js(widget, 'django.js')
 
+    def test_unknown_addon(self):
+        """
+        The widget should not include non-existing media files when inited with
+        an unrecognised addon.
+        """
+        widget = MirrorArea(addons=['mumbo-jumbo'])
+        with self.assertLogs(level='ERROR'):
+            self.assertTrue('mumbo-jumbo' not in str(widget.media))
+            self.assert_css(widget, 'codemirror/lib/codemirror.css')
+            self.assert_js(widget, 'codemirror/lib/codemirror.js')
+            self.assert_js(widget, 'django.js')
+
     @override_settings(DJANGO_MIRROR_DEFAULTS={'theme': 'yeti'})
     def test_default_theme(self):
         """
@@ -152,3 +176,15 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
         self.assert_css(widget, 'codemirror/theme/nord.css')
         self.assert_js(widget, 'codemirror/lib/codemirror.js')
         self.assert_js(widget, 'django.js')
+
+    def test_unknown_theme(self):
+        """
+        The widget should not include non-existing media files when inited with
+        an unrecognised theme.
+        """
+        widget = MirrorArea(theme='mumbo-jumbo')
+        with self.assertLogs(level='ERROR'):
+            self.assertTrue('mumbo-jumbo' not in str(widget.media))
+            self.assert_css(widget, 'codemirror/lib/codemirror.css')
+            self.assert_js(widget, 'codemirror/lib/codemirror.js')
+            self.assert_js(widget, 'django.js')

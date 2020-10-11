@@ -4,9 +4,12 @@ import os.path
 from django.forms.widgets import Media
 
 
-MEDIA_PATHS = {}
+PACKAGE_DIR = os.path.dirname(os.path.abspath(__file__))
+CODEMIRROR_DIR = os.path.join(PACKAGE_DIR, 'static/django-mirror/codemirror')
 
-with open(os.path.join(os.path.dirname(__file__), 'media.json')) as f:
+
+MEDIA_PATHS = {}
+with open(os.path.join(PACKAGE_DIR, 'media.json')) as f:
     MEDIA_PATHS = json.load(f)
 
 
@@ -41,24 +44,39 @@ def _make(path):
 def get_mode_media(mode):
     """
     Return a media instance pointing to the css and js files required by the
-    given mode.
+    given mode. Raise an error if the mode cannot be recognised.
     """
     path = 'mode/{}/{}.js'.format(mode, mode)
+
+    if path not in MEDIA_PATHS:
+        raise ValueError('Unknown mode: {!s}'.format(mode))
+
     return _make(path)
 
 
 def get_addon_media(addon):
     """
     Return a media instance pointing to the css and js files required by the
-    given addon.
+    given addon. Raise an error if the mode cannot be recognised.
     """
     path = 'addon/{}'.format(addon if addon.endswith('.js') else addon+'.js')
+
+    if path not in MEDIA_PATHS:
+        raise ValueError('Unknown addon: {!s}'.format(addon))
+
     return _make(path)
+
 
 def get_theme_media(theme):
     """
     Return a media instance pointing to the css file of the requested theme.
+    Raise an error if the theme cannot be recognised.
     """
     path = 'theme/{}.css'.format(theme)
+
+    if not os.path.exists(os.path.join(CODEMIRROR_DIR, path)):
+        raise ValueError('Unknown theme: {!s}'.format(theme))
+
     path = os.path.join('django-mirror/codemirror', path)
+
     return Media(css={'all': [path]})

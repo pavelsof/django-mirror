@@ -60,3 +60,18 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
         self.assert_js(form, 'codemirror/addon/dialog/dialog.js')
         self.assert_js(form, 'codemirror/addon/search/search.js')
         self.assert_js(form, 'django.js')
+
+    def test_tuples_list_with_themes(self):
+        """
+        The mixin should be able to handle mirror_fields with themes.
+        """
+        class EchoAdmin(MirrorAdmin, admin.ModelAdmin):
+            mirror_fields = (
+                ('words', {'theme': 'dracula'}),
+            )
+
+        form = self.get_form_instance(EchoAdmin)
+        self.assert_css(form, 'codemirror/lib/codemirror.css')
+        self.assert_css(form, 'codemirror/theme/dracula.css')
+        self.assert_js(form, 'codemirror/lib/codemirror.js')
+        self.assert_js(form, 'django.js')

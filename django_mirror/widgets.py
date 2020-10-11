@@ -1,4 +1,5 @@
 import json
+import logging
 
 from django import forms
 
@@ -6,6 +7,9 @@ from django_mirror.config import Config
 from django_mirror.media import (
     get_addon_media, get_mode_media, get_theme_media
 )
+
+
+logger = logging.getLogger(__name__)
 
 
 class MirrorArea(forms.Textarea):
@@ -39,13 +43,22 @@ class MirrorArea(forms.Textarea):
         )
 
         if 'mode' in self.config.options:
-            media += get_mode_media(self.config.options['mode'])
+            try:
+                media += get_mode_media(self.config.options['mode'])
+            except ValueError as error:
+                logger.error(str(error))
 
         if 'theme' in self.config.options:
-            media += get_theme_media(self.config.options['theme'])
+            try:
+                media += get_theme_media(self.config.options['theme'])
+            except ValueError as error:
+                logger.error(str(error))
 
         for addon in self.config.addons:
-            media += get_addon_media(addon)
+            try:
+                media += get_addon_media(addon)
+            except ValueError as error:
+                logger.error(str(error))
 
         media += forms.Media(js=['django-mirror/django.js'])
 
