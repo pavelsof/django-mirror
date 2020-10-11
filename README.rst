@@ -15,7 +15,7 @@ This is a Python 3 package with no other dependencies apart from Django and it i
     # usually inside a virtual environment
     pip install django-mirror
 
-The CodeMirror files (version `5.55.0`_) are included in the package.
+The CodeMirror files (version `5.58.1`_) are included in the package.
 
 
 settings
@@ -82,8 +82,11 @@ If you want to use the widget in the admin panel, you can subclass the ``MirrorA
         mirror_fields = (  # with custom options
             ('comment', {
                 'mode': 'markdown',
+                'line_wrapping': True,
             })
         )
+
+The mixin also includes a bit of css to make CodeMirror look more like regular admin textarea fields.
 
 
 similar projects
@@ -103,7 +106,7 @@ licence
 GPL. You can do what you want with this code as long as you let others do the same.
 
 
-.. _`5.55.0`: https://github.com/codemirror/CodeMirror/releases/tag/5.55.0
+.. _`5.58.1`: https://github.com/codemirror/CodeMirror/releases/tag/5.58.1
 .. _`addons`: https://codemirror.net/doc/manual.html#addons
 .. _`Cheese Shop`: https://pypi.python.org/pypi/django-mirror
 .. _`CodeMirror`: https://codemirror.net/

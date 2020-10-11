@@ -59,9 +59,7 @@
   "addon/runmode/colorize.js": [
     "addon/runmode/runmode.js"
   ],
-  "addon/runmode/runmode-standalone.js": [],
   "addon/runmode/runmode.js": [],
-  "addon/runmode/runmode.node.js": [],
   "addon/scroll/annotatescrollbar.js": [],
   "addon/scroll/scrollpastend.js": [],
   "addon/scroll/simplescrollbars.js": [
