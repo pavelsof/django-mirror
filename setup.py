@@ -27,7 +27,7 @@ setup(
     author_email='mail@pavelsof.com',
 
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Framework :: Django',
         'Intended Audience :: Developers',
@@ -41,7 +41,7 @@ setup(
         'Tracker': 'https://github.com/pavelsof/django-mirror/issues',
     },
 
-    packages=find_packages(),
+    packages=find_packages(exclude=['tests']),
 
     install_requires=['django>=1.11'],
     python_requires='>=3',
