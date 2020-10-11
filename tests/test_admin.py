@@ -26,7 +26,7 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
         form = self.get_form_instance(EchoAdmin)
         self.assert_css(form, 'codemirror/lib/codemirror.css')
         self.assert_js(form, 'codemirror/lib/codemirror.js')
-        self.assert_js(form, 'django.js')
+        self.assert_js(form, 'init.js')
 
     def test_tuples_list_with_modes(self):
         """
@@ -41,7 +41,7 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
         self.assert_css(form, 'codemirror/lib/codemirror.css')
         self.assert_js(form, 'codemirror/lib/codemirror.js')
         self.assert_js(form, 'codemirror/mode/mirc/mirc.js')
-        self.assert_js(form, 'django.js')
+        self.assert_js(form, 'init.js')
 
     def test_tuples_list_with_addons(self):
         """
@@ -59,7 +59,7 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
         self.assert_js(form, 'codemirror/addon/search/searchcursor.js')
         self.assert_js(form, 'codemirror/addon/dialog/dialog.js')
         self.assert_js(form, 'codemirror/addon/search/search.js')
-        self.assert_js(form, 'django.js')
+        self.assert_js(form, 'init.js')
 
     def test_tuples_list_with_themes(self):
         """
@@ -74,4 +74,4 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
         self.assert_css(form, 'codemirror/lib/codemirror.css')
         self.assert_css(form, 'codemirror/theme/dracula.css')
         self.assert_js(form, 'codemirror/lib/codemirror.js')
-        self.assert_js(form, 'django.js')
+        self.assert_js(form, 'init.js')

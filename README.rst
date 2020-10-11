@@ -2,7 +2,7 @@
 django-mirror
 =============
 
-This package marries `Django`_ with `CodeMirror`_. It provides (1) a customisable form widget, and (2) a shorthand way to use this widget in the admin.
+This package marries `Django`_ with `CodeMirror`_. It provides (1) a customisable form widget, and (2) a shorthand way to use this widget in the admin. In both cases the relevant static files (including mode/theme/addon files) are automatically included as form assets.
 
 
 installation

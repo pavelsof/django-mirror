@@ -60,7 +60,7 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
         self.assert_css(widget, 'codemirror/lib/codemirror.css')
         self.assert_js(widget, 'codemirror/lib/codemirror.js')
         self.assert_js(widget, 'codemirror/mode/python/python.js')
-        self.assert_js(widget, 'django.js')
+        self.assert_js(widget, 'init.js')
 
     @override_settings(DJANGO_MIRROR_DEFAULTS={'mode': 'python'})
     def test_override_mode(self):
@@ -73,7 +73,7 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
         self.assert_css(widget, 'codemirror/lib/codemirror.css')
         self.assert_js(widget, 'codemirror/lib/codemirror.js')
         self.assert_js(widget, 'codemirror/mode/erlang/erlang.js')
-        self.assert_js(widget, 'django.js')
+        self.assert_js(widget, 'init.js')
 
     def test_mode_addons(self):
         """
@@ -87,7 +87,7 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
         self.assert_js(widget, 'codemirror/mode/python/python.js')
         self.assert_js(widget, 'codemirror/mode/stex/stex.js')
         self.assert_js(widget, 'codemirror/addon/mode/overlay.js')
-        self.assert_js(widget, 'django.js')
+        self.assert_js(widget, 'init.js')
 
     def test_unknown_mode(self):
         """
@@ -99,7 +99,7 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
             self.assertTrue('mumbo-jumbo' not in str(widget.media))
             self.assert_css(widget, 'codemirror/lib/codemirror.css')
             self.assert_js(widget, 'codemirror/lib/codemirror.js')
-            self.assert_js(widget, 'django.js')
+            self.assert_js(widget, 'init.js')
 
     @override_settings(DJANGO_MIRROR_DEFAULTS={'addons': ['dialog/dialog']})
     def test_default_addons(self):
@@ -112,7 +112,7 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
         self.assert_css(widget, 'codemirror/addon/dialog/dialog.css')
         self.assert_js(widget, 'codemirror/lib/codemirror.js')
         self.assert_js(widget, 'codemirror/addon/dialog/dialog.js')
-        self.assert_js(widget, 'django.js')
+        self.assert_js(widget, 'init.js')
 
     @override_settings(DJANGO_MIRROR_DEFAULTS={'addons': ['dialog/dialog']})
     def test_override_addons(self):
@@ -126,7 +126,7 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
         self.assert_css(widget, 'codemirror/lib/codemirror.css')
         self.assert_js(widget, 'codemirror/lib/codemirror.js')
         self.assert_js(widget, 'codemirror/addon/wrap/hardwrap.js')
-        self.assert_js(widget, 'django.js')
+        self.assert_js(widget, 'init.js')
 
     def test_addon_modes(self):
         """
@@ -138,7 +138,7 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
         self.assert_js(widget, 'codemirror/lib/codemirror.js')
         self.assert_js(widget, 'codemirror/addon/hint/sql-hint.js')
         self.assert_js(widget, 'codemirror/mode/sql/sql.js')
-        self.assert_js(widget, 'django.js')
+        self.assert_js(widget, 'init.js')
 
     def test_unknown_addon(self):
         """
@@ -150,7 +150,7 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
             self.assertTrue('mumbo-jumbo' not in str(widget.media))
             self.assert_css(widget, 'codemirror/lib/codemirror.css')
             self.assert_js(widget, 'codemirror/lib/codemirror.js')
-            self.assert_js(widget, 'django.js')
+            self.assert_js(widget, 'init.js')
 
     @override_settings(DJANGO_MIRROR_DEFAULTS={'theme': 'yeti'})
     def test_default_theme(self):
@@ -162,7 +162,7 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
         self.assert_css(widget, 'codemirror/lib/codemirror.css')
         self.assert_css(widget, 'codemirror/theme/yeti.css')
         self.assert_js(widget, 'codemirror/lib/codemirror.js')
-        self.assert_js(widget, 'django.js')
+        self.assert_js(widget, 'init.js')
 
     @override_settings(DJANGO_MIRROR_DEFAULTS={'theme': 'yeti.css'})
     def test_override_theme(self):
@@ -175,7 +175,7 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
         self.assert_css(widget, 'codemirror/lib/codemirror.css')
         self.assert_css(widget, 'codemirror/theme/nord.css')
         self.assert_js(widget, 'codemirror/lib/codemirror.js')
-        self.assert_js(widget, 'django.js')
+        self.assert_js(widget, 'init.js')
 
     def test_unknown_theme(self):
         """
@@ -187,4 +187,4 @@ class MirrorAreaTestCase(WidgetAssertions, TestCase):
             self.assertTrue('mumbo-jumbo' not in str(widget.media))
             self.assert_css(widget, 'codemirror/lib/codemirror.css')
             self.assert_js(widget, 'codemirror/lib/codemirror.js')
-            self.assert_js(widget, 'django.js')
+            self.assert_js(widget, 'init.js')

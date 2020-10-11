@@ -13,6 +13,10 @@ logger = logging.getLogger(__name__)
 
 
 class MirrorArea(forms.Textarea):
+    """
+    Form widget that renders as a standard <textarea> but also includes the
+    relevant static files that convert it into a CodeMirror editor.
+    """
 
     def __init__(self, attrs=None, addons=[], **kwargs):
         """
@@ -60,6 +64,6 @@ class MirrorArea(forms.Textarea):
             except ValueError as error:
                 logger.error(str(error))
 
-        media += forms.Media(js=['django-mirror/django.js'])
+        media += forms.Media(js=['django-mirror/init.js'])
 
         return media
