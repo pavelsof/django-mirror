@@ -1,4 +1,4 @@
-from django_mirror.widgets import MirrorArea
+from django_mirror.widgets import AdminMirrorArea
 
 
 class MirrorAdmin:
@@ -38,7 +38,7 @@ class MirrorAdmin:
                 field_name = str(field)
                 widget_args = {}
 
-            mirror_widgets[field_name] = MirrorArea(**widget_args)
+            mirror_widgets[field_name] = AdminMirrorArea(**widget_args)
 
         if mirror_widgets:
             if 'widgets' in kwargs and kwargs['widgets'] is not None:
@@ -47,12 +47,3 @@ class MirrorAdmin:
                 kwargs['widgets'] = mirror_widgets
 
         return super().get_form(request, obj, **kwargs)
-
-    class Media:
-        """
-        Include admin.css, which tries to make the CodeMirror editor instances
-        look a bit more like regular admin textarea fields.
-        """
-        css = {
-            'all': ('django-mirror/admin.css',)
-        }

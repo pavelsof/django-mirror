@@ -67,3 +67,22 @@ class MirrorArea(forms.Textarea):
         media += forms.Media(js=['django-mirror/init.js'])
 
         return media
+
+
+class AdminMirrorArea(MirrorArea):
+    """
+    The same widget in the context of the Django admin.
+    """
+
+    @property
+    def media(self):
+        """
+        Include admin.css, which tries to make the CodeMirror editor instances
+        look a bit more like regular admin textarea fields.
+        """
+        admin_media = forms.Media(
+            css = {
+                'all': ('django-mirror/admin.css',)
+            }
+        )
+        return super().media + admin_media

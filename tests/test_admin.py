@@ -24,7 +24,10 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
             mirror_fields = ('words',)
 
         form = self.get_form_instance(EchoAdmin)
+
         self.assert_css(form, 'codemirror/lib/codemirror.css')
+        self.assert_css(form, 'admin.css')
+
         self.assert_js(form, 'codemirror/lib/codemirror.js')
         self.assert_js(form, 'init.js')
 
@@ -38,7 +41,10 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
             )
 
         form = self.get_form_instance(EchoAdmin)
+
         self.assert_css(form, 'codemirror/lib/codemirror.css')
+        self.assert_css(form, 'admin.css')
+
         self.assert_js(form, 'codemirror/lib/codemirror.js')
         self.assert_js(form, 'codemirror/mode/mirc/mirc.js')
         self.assert_js(form, 'init.js')
@@ -53,8 +59,11 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
             )
 
         form = self.get_form_instance(EchoAdmin)
+
         self.assert_css(form, 'codemirror/lib/codemirror.css')
         self.assert_css(form, 'codemirror/addon/dialog/dialog.css')
+        self.assert_css(form, 'admin.css')
+
         self.assert_js(form, 'codemirror/lib/codemirror.js')
         self.assert_js(form, 'codemirror/addon/search/searchcursor.js')
         self.assert_js(form, 'codemirror/addon/dialog/dialog.js')
@@ -71,7 +80,29 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
             )
 
         form = self.get_form_instance(EchoAdmin)
+
         self.assert_css(form, 'codemirror/lib/codemirror.css')
         self.assert_css(form, 'codemirror/theme/dracula.css')
+        self.assert_css(form, 'admin.css')
+
+        self.assert_js(form, 'codemirror/lib/codemirror.js')
+        self.assert_js(form, 'init.js')
+
+    def test_admin_with_media(self):
+        """
+        The mixin should include its admin.css also when the model admin has
+        its own media.
+        """
+        class EchoAdmin(MirrorAdmin, admin.ModelAdmin):
+            mirror_fields = ('words',)
+
+            class Media:
+                css = {'all': ['another.css']}
+
+        form = self.get_form_instance(EchoAdmin)
+
+        self.assert_css(form, 'codemirror/lib/codemirror.css')
+        self.assert_css(form, 'admin.css')
+
         self.assert_js(form, 'codemirror/lib/codemirror.js')
         self.assert_js(form, 'init.js')
