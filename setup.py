@@ -23,7 +23,7 @@ setup(
     long_description_content_type='text/x-rst',
 
     url='https://github.com/pavelsof/django-mirror',
-    author='Pavel Sofroniev',
+    author='pavelsof',
     author_email='mail@pavelsof.com',
 
     classifiers=[
