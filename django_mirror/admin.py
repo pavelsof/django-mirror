@@ -22,10 +22,12 @@ class MirrorAdmin:
         """
         return self.mirror_fields
 
-    def get_form(self, request, obj=None, **kwargs):
+    def _update_form_factory_kwargs(self, request, obj=None, **kwargs):
         """
-        Overwrite ModelAdmin's get_form method in order to provide the widgets
-        argument to the modelform_factory.
+        Update kwargs['widgets'] to include the mirror area widgets as defined
+        in the mirror_fields option.
+
+        Helper for the get_form and get_formset methods.
         """
         mirror_fields = self.get_mirror_fields(request, obj)
         mirror_widgets = {}
@@ -46,4 +48,20 @@ class MirrorAdmin:
             else:
                 kwargs['widgets'] = mirror_widgets
 
+        return kwargs
+
+    def get_form(self, request, obj=None, **kwargs):
+        """
+        Overwrite ModelAdmin's get_form method in order to update the widgets
+        argument for the modelform_factory.
+        """
+        kwargs = self._update_form_factory_kwargs(request, obj, **kwargs)
         return super().get_form(request, obj, **kwargs)
+
+    def get_formset(self, request, obj=None, **kwargs):
+        """
+        Overwrite InlineModelAdmin's get_formset method in order to update the
+        widgets argument for the inlineformset_factory.
+        """
+        kwargs = self._update_form_factory_kwargs(request, obj, **kwargs)
+        return super().get_formset(request, obj, **kwargs)

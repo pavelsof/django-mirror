@@ -1,19 +1,24 @@
+from unittest.mock import Mock
+
 from django.contrib import admin
-from django.test import RequestFactory, TestCase
+from django.test import TestCase
 from django_mirror.admin import MirrorAdmin
 
 from tests.mixins import WidgetAssertions
-from tests.models import Echo
+from tests.models import Echo, EchoReply
 
 
 class MirrorAdminTestCase(WidgetAssertions, TestCase):
+
+    def setUp(self):
+        self.admin_site = admin.AdminSite()
 
     def get_form_instance(self, echo_admin_class):
         """
         Init and return an instance of the form of the given EchoAdmin class.
         """
-        echo_admin = echo_admin_class(Echo, admin.site)
-        echo_form_class = echo_admin.get_form(RequestFactory().get('/'))
+        echo_admin = echo_admin_class(Echo, self.admin_site)
+        echo_form_class = echo_admin.get_form(Mock())
         return echo_form_class()
 
     def test_simple_list(self):
@@ -106,3 +111,24 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
 
         self.assert_js(form, 'codemirror/lib/codemirror.js')
         self.assert_js(form, 'init.js')
+
+    def test_inline_admin(self):
+        """
+        The mixin should work with InlineAdmin subclasses.
+        """
+        class EchoReplyAdmin(MirrorAdmin, admin.StackedInline):
+            model = EchoReply
+            mirror_fields = ('words',)
+
+        class EchoAdmin(admin.ModelAdmin):
+            inlines = [EchoReplyAdmin]
+
+        echo_admin = EchoAdmin(Echo, self.admin_site)
+        formsets_and_inlines = echo_admin._create_formsets(Mock(), None, False)
+        formset = formsets_and_inlines[0][0]
+
+        self.assert_css(formset, 'codemirror/lib/codemirror.css')
+        self.assert_css(formset, 'admin.css')
+
+        self.assert_js(formset, 'codemirror/lib/codemirror.js')
+        self.assert_js(formset, 'init.js')
