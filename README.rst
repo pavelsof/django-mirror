@@ -15,7 +15,7 @@ This is a Python 3 package with no other dependencies apart from Django and it i
     # usually inside a virtual environment
     pip install django-mirror
 
-The CodeMirror files (version `5.58.1`_) are included in the package.
+The CodeMirror files (version `5.58.2`_) are included in the package.
 
 
 settings
@@ -106,7 +106,7 @@ licence
 `GNU GPLv3`_.
 
 
-.. _`5.58.1`: https://github.com/codemirror/CodeMirror/releases/tag/5.58.1
+.. _`5.58.2`: https://github.com/codemirror/CodeMirror/releases/tag/5.58.2
 .. _`addons`: https://codemirror.net/doc/manual.html#addons
 .. _`Cheese Shop`: https://pypi.python.org/pypi/django-mirror
 .. _`CodeMirror`: https://codemirror.net/
