@@ -1,6 +1,7 @@
 import os.path
 
 from django.utils.html import format_html
+from django import VERSION
 
 
 class WidgetAssertions:
@@ -33,7 +34,15 @@ class WidgetAssertions:
     def assert_js(self, widget, path):
         """
         Assert that the widget renders a <script> pointing to the given path.
+
+        Note that starting with Django 3.1 <script> tags are produced without
+        the type attribute.
         """
         path = os.path.join('django-mirror', path)
-        script_html = '<script src="{}"  type="text/javascript"></script>'
+
+        if VERSION >= (3, 1):
+            script_html = '<script src="{}"></script>'
+        else:
+            script_html = '<script src="{}" type="text/javascript"></script>'
+
         self.assertInHTML(script_html.format(path), str(widget.media))

@@ -10,6 +10,9 @@
 # sample project
 /sample_project/db.sqlite3
 
+# tests
+/.tox
+
 # python temps
 *.pyc
 

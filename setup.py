@@ -43,7 +43,7 @@ setup(
 
     packages=find_packages(exclude=['tests']),
 
-    install_requires=['django>=1.11'],
+    install_requires=['django>=2.2'],
     python_requires='>=3',
 
     package_data={
