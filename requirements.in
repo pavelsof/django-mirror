@@ -1,0 +1,14 @@
+-e file:.
+django==2.2
+
+# testing
+tox
+
+# packaging and distributing
+wheel
+twine
+
+# other tools
+ipython
+pip-tools
+pyflakes
