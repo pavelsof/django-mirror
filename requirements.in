@@ -1,5 +1,5 @@
 -e file:.
-django==2.2
+django==2.2.13
 
 # testing
 tox
