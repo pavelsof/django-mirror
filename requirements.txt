@@ -16,7 +16,7 @@ colorama==0.4.4           # via twine
 cryptography==3.2.1       # via secretstorage
 decorator==4.4.2          # via ipython
 distlib==0.3.1            # via virtualenv
-django==2.2               # via -r requirements.in, django-mirror
+django==2.2.17            # via -r requirements.in, django-mirror
 docutils==0.16            # via readme-renderer
 filelock==3.0.12          # via tox, virtualenv
 idna==2.10                # via requests
