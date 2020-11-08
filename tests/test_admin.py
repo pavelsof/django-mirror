@@ -35,6 +35,7 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
 
         self.assert_js(form, 'codemirror/lib/codemirror.js')
         self.assert_js(form, 'init.js')
+        self.assert_js(form, 'admin.js')
 
     def test_tuples_list_with_modes(self):
         """
@@ -53,6 +54,7 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
         self.assert_js(form, 'codemirror/lib/codemirror.js')
         self.assert_js(form, 'codemirror/mode/mirc/mirc.js')
         self.assert_js(form, 'init.js')
+        self.assert_js(form, 'admin.js')
 
     def test_tuples_list_with_addons(self):
         """
@@ -74,6 +76,7 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
         self.assert_js(form, 'codemirror/addon/dialog/dialog.js')
         self.assert_js(form, 'codemirror/addon/search/search.js')
         self.assert_js(form, 'init.js')
+        self.assert_js(form, 'admin.js')
 
     def test_tuples_list_with_themes(self):
         """
@@ -92,6 +95,7 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
 
         self.assert_js(form, 'codemirror/lib/codemirror.js')
         self.assert_js(form, 'init.js')
+        self.assert_js(form, 'admin.js')
 
     def test_admin_with_media(self):
         """
@@ -111,6 +115,7 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
 
         self.assert_js(form, 'codemirror/lib/codemirror.js')
         self.assert_js(form, 'init.js')
+        self.assert_js(form, 'admin.js')
 
     def test_inline_admin(self):
         """
@@ -132,3 +137,4 @@ class MirrorAdminTestCase(WidgetAssertions, TestCase):
 
         self.assert_js(formset, 'codemirror/lib/codemirror.js')
         self.assert_js(formset, 'init.js')
+        self.assert_js(formset, 'admin.js')
