@@ -44,7 +44,7 @@ Bascially this package provides a form widget called ``MirrorArea`` that extends
 .. code:: python
 
     from django import forms
-    from django_mirror.widgets import MirrorTextarea
+    from django_mirror.widgets import MirrorArea
 
     class CommentForm(forms.Form):
         text = forms.CharField(
