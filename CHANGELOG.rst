@@ -3,6 +3,13 @@ changelog
 =========
 
 
+0.1.9 (2020-11-16)
+------------------
+
+- Relicensed the package under `GNU LGPLv3`_.
+- Fixed an incorrect reference in the README (`#3`_).
+
+
 0.1.8 (2020-11-09)
 ------------------
 
@@ -23,3 +30,5 @@ changelog
 
 
 .. _`#1`: https://github.com/pavelsof/django-mirror/issues/1
+.. _`#3`: https://github.com/pavelsof/django-mirror/pull/3
+.. _`GNU LGPLv3`: https://www.gnu.org/licenses/lgpl-3.0.html

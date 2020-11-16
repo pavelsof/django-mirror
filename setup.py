@@ -37,6 +37,7 @@ setup(
     ],
     keywords='django codemirror',
     project_urls={
+        'Changelog': 'https://github.com/pavelsof/django-mirror/blob/master/CHANGELOG.rst',
         'Source': 'https://github.com/pavelsof/django-mirror',
         'Tracker': 'https://github.com/pavelsof/django-mirror/issues',
     },
