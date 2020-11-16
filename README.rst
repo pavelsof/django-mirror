@@ -103,7 +103,7 @@ There are several other packages that provide customisable CodeMirror widgets:
 licence
 =======
 
-`GNU GPLv3`_.
+`GNU LGPLv3`_. Please refer to ``COPYING`` for the base GPLv3 licence and to ``COPYING.LESSER`` for the additional permissions on top that constitute LGPLv3.
 
 
 .. _`5.58.2`: https://github.com/codemirror/CodeMirror/releases/tag/5.58.2
@@ -116,4 +116,4 @@ licence
 .. _`django-codemirror2`: https://pypi.org/project/django-codemirror2/
 .. _`django-codemirror-widget`: https://pypi.org/project/django-codemirror-widget/
 .. _`django-codemirror-widget-2`: https://pypi.org/project/django-codemirror-widget-2/
-.. _`GNU GPLv3`: https://www.gnu.org/licenses/gpl-3.0.en.html
+.. _`GNU LGPLv3`: https://www.gnu.org/licenses/lgpl-3.0.html
