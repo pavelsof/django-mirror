@@ -83,7 +83,7 @@ If you want to use the widget in the admin panel, you can subclass the ``MirrorA
             ('comment', {
                 'mode': 'markdown',
                 'line_wrapping': True,
-            })
+            }),
         )
 
 The mixin also includes a bit of css to make CodeMirror look more like regular admin textarea fields.
