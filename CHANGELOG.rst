@@ -3,6 +3,13 @@ changelog
 =========
 
 
+0.1.10 (2020-12-04)
+------------------
+
+- Upgraded CodeMirror to version 5.58.3.
+- Fixed an incorrect code example in the README (`#4`_).
+
+
 0.1.9 (2020-11-16)
 ------------------
 
@@ -31,4 +38,5 @@ changelog
 
 .. _`#1`: https://github.com/pavelsof/django-mirror/issues/1
 .. _`#3`: https://github.com/pavelsof/django-mirror/pull/3
+.. _`#4`: https://github.com/pavelsof/django-mirror/pull/4
 .. _`GNU LGPLv3`: https://www.gnu.org/licenses/lgpl-3.0.html
