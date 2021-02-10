@@ -1,14 +1,14 @@
 -e file:.
-django==2.2.17
+django==2.2.18
 
 # testing
-tox==3.20.1
+tox==3.21.4
 
 # packaging and distributing
-wheel==0.35.1
-twine==3.2.0
+wheel==0.36.2
+twine==3.3.0
 
 # other tools
-ipython==7.19.0
-pip-tools==5.3.1
+ipython==7.20.0
+pip-tools==5.5.0
 pyflakes==2.2.0
