@@ -31,7 +31,7 @@ distlib==0.3.1
 django==2.2.18
     # via
     #   -r requirements.in
-    #   django-mirror
+    #   sanitized-package
 docutils==0.16
     # via readme-renderer
 filelock==3.0.12
@@ -116,7 +116,7 @@ traitlets==5.0.5
     # via ipython
 twine==3.3.0
     # via -r requirements.in
-urllib3==1.26.3
+urllib3==1.26.4
     # via requests
 virtualenv==20.4.2
     # via tox
