@@ -15,7 +15,7 @@ This is a Python 3 package with no other dependencies apart from Django and it i
     # usually inside a virtual environment
     pip install django-mirror
 
-The CodeMirror files (version `5.61.1`_) are included in the package. The supported Django versions are **2.2**, **3.0**, and **3.1**.
+The CodeMirror files (version `5.61.1`_) are included in the package. The supported Django versions are **2.2**, **3.0**, **3.1**, and **3.2**.
 
 
 settings
