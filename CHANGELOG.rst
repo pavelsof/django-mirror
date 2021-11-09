@@ -3,11 +3,11 @@ changelog
 =========
 
 
-0.1.13 (TBD)
+0.1.13 (2021-11-09)
 ------------------
 
 - Upgraded CodeMirror to version 5.63.3.
-- [Django ≥ 3.2] The admin widget now looks passable under the admin's dark theme.
+- [Django ≥ 3.2] The admin widget now looks passable under the admin's `dark theme`_.
 
 
 0.1.12 (2021-06-08)
@@ -58,4 +58,5 @@ changelog
 .. _`#1`: https://github.com/pavelsof/django-mirror/issues/1
 .. _`#3`: https://github.com/pavelsof/django-mirror/pull/3
 .. _`#4`: https://github.com/pavelsof/django-mirror/pull/4
+.. _`dark theme`: https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#admin-theming
 .. _`GNU LGPLv3`: https://www.gnu.org/licenses/lgpl-3.0.html
