@@ -2,13 +2,13 @@
 django==2.2.24
 
 # testing
-tox==3.23.1
+tox==3.24.4
 
 # packaging and distributing
-wheel==0.36.2
-twine==3.4.1
+wheel==0.37.0
+twine==3.5.0
 
 # other tools
-ipython==7.24.1
-pip-tools==6.1.0
-pyflakes==2.3.1
+ipython==7.29.0
+pip-tools==6.4.0
+pyflakes==2.4.0
