@@ -1,7 +1,8 @@
 .CodeMirror {
-	border: 1px solid #ccc;
+	background-color: var(--body-bg);
+	border: 1px solid var(--border-color, #ccc);
 	border-radius: 4px;
-	color: inherit;
+	color: var(--body-fg, inherit);
 	font-size: 14px;
 	padding: 6px 8px;
 	resize: both;
@@ -9,5 +10,14 @@
 }
 
 .CodeMirror-focused {
-	border-color: #999;
+	border-color: var(--body-quiet-color, #999);
 }
+
+/* the default blue does not go well with django's blue */
+.cm-s-default .cm-header {color: var(--body-loud-color, blue);}
+
+/* otherwise lists in markdown are too distinctive */
+.cm-s-default .cm-variable-2 {color: var(--body-fg, #05a);}
+
+/* the default #00c is not nice in dark mode */
+.cm-s-default .cm-link {color: var(--link-fg, #00c);}

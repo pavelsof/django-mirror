@@ -7,6 +7,7 @@ changelog
 ------------------
 
 - Upgraded CodeMirror to version 5.63.3.
+- [Django ≥ 3.2] The admin widget now looks passable under the admin's dark theme.
 
 
 0.1.12 (2021-06-08)
