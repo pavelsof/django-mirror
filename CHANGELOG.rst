@@ -6,32 +6,32 @@ changelog
 0.1.14 (TBD)
 ------------
 
-- Upgraded CodeMirror to version 5.65.0.
+- Upgraded CodeMirror to version `5.65.2 <https://github.com/codemirror/CodeMirror/releases/tag/5.65.2>`_.
 
 
 0.1.13 (2021-11-09)
 -------------------
 
-- Upgraded CodeMirror to version 5.63.3.
+- Upgraded CodeMirror to version `5.63.3 <https://github.com/codemirror/CodeMirror/releases/tag/5.63.3>`_.
 - [Django ≥ 3.2] The admin widget now looks passable under the admin's `dark theme`_.
 
 
 0.1.12 (2021-06-08)
 -------------------
 
-- Upgraded CodeMirror to version 5.61.1.
+- Upgraded CodeMirror to version `5.61.1 <https://github.com/codemirror/CodeMirror/releases/tag/5.61.1>`_.
 
 
 0.1.11 (2021-02-10)
 -------------------
 
-- Upgraded CodeMirror to version 5.59.2.
+- Upgraded CodeMirror to version `5.59.2 <https://github.com/codemirror/CodeMirror/releases/tag/5.59.2>`_.
 
 
 0.1.10 (2020-12-04)
 -------------------
 
-- Upgraded CodeMirror to version 5.58.3.
+- Upgraded CodeMirror to version `5.58.3 <https://github.com/codemirror/CodeMirror/releases/tag/5.58.3>`_.
 - Fixed an incorrect code example in the README (`#4`_).
 
 
@@ -51,7 +51,7 @@ changelog
 0.1.7 (2020-10-26)
 ------------------
 
-- Upgraded CodeMirror to version 5.58.2.
+- Upgraded CodeMirror to version `5.58.2 <https://github.com/codemirror/CodeMirror/releases/tag/5.58.2>`_.
 - Clearer licence info in the README (`#1`_).
 
 

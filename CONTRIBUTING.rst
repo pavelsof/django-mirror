@@ -55,8 +55,9 @@ how to...
     cd django_mirror/static/django-mirror/codemirror/
 
     # checkout the newer version
+    git checkout master
     git pull
-    git checkout 5.65.0
+    git checkout 5.65.2
 
     # build lib/codemirror.js
     npm install
