@@ -57,7 +57,7 @@ how to...
     # checkout the newer version
     git checkout master
     git pull
-    git checkout 5.65.2
+    git checkout 5.65.3
 
     # build lib/codemirror.js
     npm install
@@ -75,4 +75,4 @@ how to...
     vim CHANGELOG.rst
 
     # commit
-    git commit -am "Upgraded CodeMirror to 5.65.0."
+    git commit -am "Upgraded CodeMirror to 5.65.3."

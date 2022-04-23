@@ -6,7 +6,7 @@ changelog
 0.1.14 (TBD)
 ------------
 
-- Upgraded CodeMirror to version `5.65.2 <https://github.com/codemirror/CodeMirror/releases/tag/5.65.2>`_.
+- Upgraded CodeMirror to version `5.65.3 <https://github.com/codemirror/CodeMirror/releases/tag/5.65.3>`_.
 
 
 0.1.13 (2021-11-09)
